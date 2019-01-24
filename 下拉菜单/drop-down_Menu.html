@@ -35,7 +35,7 @@
 			background: url(imgs/libg.jpg) no-repeat;
 		}
 		.wrap > header > ul > li > ul{
-			/*display: none;*/
+			display: none;
 		}
 		.wrap > header > ul > li > ul a{
 			margin-top: 3px;
@@ -73,9 +73,21 @@
 				</li>
 			</ul>
 		</header>
-		<section>
-			
-		</section>
+		<section></section>
 	</div>
+	<script src="../jquery-1.12.4.js"></script>
+	<script>
+		/*区别mouseover与mouseenter？
+			mouseover：在移入子元素时也会触发（进入div1，离开div1进入div1，离开div1进入div1，离开div1），对应mouseout。
+			mouseenter：只在移入当前元素时才触发（移入子元素无影响），对应mouseleave。hover使用的是这种。*/
+		$(function(){
+			var $li = $(".wrap > header > ul > li");
+			$li.mouseenter(function(){
+				$(this).children('ul').show();
+			}).mouseleave(function(){
+				$(this).children('ul').hide();
+			});
+		})
+	</script>
 </body>
 </html>

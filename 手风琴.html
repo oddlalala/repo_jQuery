@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>accordion</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul{
+			width: 200px;
+			list-style: none;
+		}
+		ul > li{
+			border: 1px solid;
+		}
+		ul > li > h4{
+			height: 25px;
+			background: lightblue;
+			line-height: 25px;
+			text-align: center;
+		}
+		ul > li > .text{
+			height: 200px;
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<h4>标题1</h4>
+			<div class="text">正文1</div>
+		</li>
+		<li>
+			<h4>标题2</h4>
+			<div class="text">正文2</div>
+		</li>
+		<li>
+			<h4>标题3</h4>
+			<div class="text">正文3</div>
+		</li>
+		<li>
+			<h4>标题4</h4>
+			<div class="text">正文4</div>
+		</li>
+	</ul>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			var $h4 = $("ul > li > h4");
+			// 效果一
+			/*$h4.attr("sw",false);
+			$h4.click(function(){
+				this.sw = !this.sw;
+				if (this.sw) {
+					$(this).next().show();
+				}else{
+					$(this).next().hide();
+				}
+			});*/
+			// 效果二
+			$h4.click(function(){
+				$("ul > li > .text").hide();
+				$(this).next().show();
+			});
+		});
+	</script>
+</body>
+</html>
