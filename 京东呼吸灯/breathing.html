@@ -40,12 +40,13 @@
 		.wrap > .arrowRight{
 			right: 0;
 		}
-		.wrap > ul:hover ~ span{
-			display: block;
-		}
-		/*.wrap:hover > span{
+		/*bug在这：鼠标移入ul，span显示，鼠标离开ul，span消失。span定位在ul上，移入span就相当于离开ul，然后span就又要消失，在显示与消失间来回转换。*/
+		/*.wrap > ul:hover ~ span{
 			display: block;
 		}*/
+		 .wrap:hover > span{
+			display: block;
+		} 
 		.wrap > span:hover{
 			background-color: rgba(0, 0, 0, 0.5);
 		}
