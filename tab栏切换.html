@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		.wrap{
+			width: 1002px;
+			margin: 10px auto;
+		}
+		.wrap > ul{
+			list-style: none;
+			width: 320px;
+			height: 36px;
+			border-left: 1px solid grey;
+			border-top: 1px solid grey;
+			border-right: 1px solid grey;
+			overflow: hidden;   /*li的line-height设置已溢出，不加的话下面div内第一行的字不会顶格*/
+		}
+		.wrap > ul > li{
+			float: left;
+			position: relative;
+			width: 25%;
+			height: 34px;
+			border-top: 4px solid transparent;
+			line-height: 34px;
+			text-align: center;
+			cursor: pointer;
+		}
+		.wrap > ul > li.active{
+			border-top-color: red;
+		}
+		.wrap > ul > li > span{
+			position: absolute;
+			width: 1px;
+			height: 14px;
+			right: 0;
+			top: 10px;
+			background: #ddd;
+		}
+		.wrap > .detailWrap{
+			height: 475px;
+			border: 1px solid green;
+		}
+		.wrap > .detailWrap > div{
+			height: 475px;
+			display: none;
+		}
+		.wrap > .detailWrap > div.selected{
+			display: block;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<ul>
+			<li class="active">国际大牌<span></span></li>   <!-- 竖线用span来显示 -->
+			<li>国妆名品<span></span></li>
+			<li>清洁用品<span></span></li>
+			<li>男士精品<span></span></li>
+		</ul>
+		<div class="detailWrap">
+			<div class="detail1 selected">11111</div>
+			<div class="detail2">22222</div>
+			<div class="detail3">33333</div>
+			<div class="detail4">44444</div>
+		</div>
+	</div>
+	<script src="jquery-1.12.4.js"></script>
+	<script>
+		$(function(){
+			var $tab = $(".wrap > ul > li");
+			var $detail = $(".wrap > .detailWrap > div");
+
+			$tab.on("mouseenter",function(){
+				$(this).addClass("active").siblings().removeClass("active");
+				var index = $(this).index();
+				// console.log($detail[index]);
+				// $detail.eq(index)取到的是jQuery对象，$detail[index]和$detail.get(index)取到的是DOM对象
+				$detail.eq(index).addClass("selected").siblings().removeClass("selected");
+			})
+		})
+	</script>
+</body>
+</html>

@@ -8,6 +8,18 @@
 			padding: 0;
 			margin: 0;
 		}
+		/*--------span代替图片---------*/
+		a{
+			text-decoration: none;
+		}
+		.wrap > ul > li > a > span{
+			display: block;
+			width: 790px;
+			height: 340px;
+			box-sizing: border-box;
+			border: 2px solid green;
+		}
+		/*----------------------------*/
 		ul{
 			list-style: none;
 		}
@@ -40,12 +52,13 @@
 		.wrap > .arrowRight{
 			right: 0;
 		}
-		.wrap > ul:hover ~ span{
-			display: block;
-		}
-		/*.wrap:hover > span{
+		/*bug在这：鼠标移入ul，span显示，鼠标离开ul，span消失。span定位在ul上，移入span就相当于离开ul，然后span就又要消失，在显示与消失间来回转换。*/
+		/*.wrap > ul:hover ~ span{
 			display: block;
 		}*/
+		 .wrap:hover > span{
+			display: block;
+		} 
 		.wrap > span:hover{
 			background-color: rgba(0, 0, 0, 0.5);
 		}
@@ -54,14 +67,14 @@
 <body>
 	<div class="wrap">
 		<ul>
-			<li><a href="javascript:;"><img src="images/1.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/2.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/3.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/4.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/5.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/6.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/7.jpg"></a></li>
-			<li><a href="javascript:;"><img src="images/8.jpg"></a></li>
+			<li><a href="javascript:;"><span>我是图11：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图22：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图33：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图44：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图55：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图66：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图77：790 x 340</span></a></li>
+			<li><a href="javascript:;"><span>我是图88：790 x 340</span></a></li>
 		</ul>
 		<span class="arrowLeft">&lt;</span><span class="arrowRight">&gt;</span>
 	</div>
