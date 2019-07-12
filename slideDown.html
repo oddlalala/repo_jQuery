@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		ul{
+			list-style: none;
+			color: violet;
+			text-align: center;
+		}
+		ul > li{
+			width: 200px;
+		}
+		ul > li:nth-child(2n) > h3{   /*使用公式 (an + b)。描述：表示周期的长度，n 是计数器（从 0 开始），b 是偏移值。*/
+			background: #000;
+		}
+		ul > li:nth-child(2n + 1) > h3{   /*odd、even*/
+			background: yellow;
+		}
+		ul > li > div{
+			display: none;
+			height: 175px;
+		}
+		.dort{
+			background: linear-gradient(yellow,black);
+		}
+		.milan{
+			background: linear-gradient(red,black);
+		}
+		.inter{
+			background: linear-gradient(blue,black);
+		}
+		.ata{
+			background: repeating-linear-gradient(to right,blue,blue 10%, black 10%,black 20%);
+		}
+		/*.disappear{
+			display: none;
+		}
+		.appear{
+			display: block;
+		}*/
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<h3>黄黑</h3>
+			<div class="dort">多特蒙德</div>
+		</li>
+		<li>
+			<h3>红黑</h3>
+			<div class="milan">米兰</div>
+		</li>
+		<li>
+			<h3>蓝黑</h3>
+			<div class="inter">国际</div>
+		</li>
+		<li>
+			<h3>真蓝黑</h3>
+			<div class="ata">亚特兰大</div>
+		</li>
+	</ul>
+	<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+	<script>
+		$(function(){
+			var $titles = $('ul > li > h3');
+			/*$titles.on('click',function(){
+				$(this).siblings('div').slideToggle('fast');
+			})*/
+			$titles.on('click',function(){
+				$('ul > li > div').stop().slideUp('fast');
+				$(this).siblings('div').stop().slideDown('fast');
+			})
+		})
+	</script>
+</body>
+</html>
